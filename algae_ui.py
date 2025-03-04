@@ -32,8 +32,8 @@ def predict_algae(image, model, class_names):
     return class_names[predicted.item()]
 
 # 获取类别列表
-train_dir = "I:/algae_data/train"
-class_names = sorted(os.listdir(train_dir))
+with open("classes.txt", "r") as f:
+    class_names = [line.strip() for line in f.readlines()]
 
 # Streamlit 界面
 st.title("藻类（浮游生物）识别系统")
